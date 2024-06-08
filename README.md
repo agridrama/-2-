@@ -14,6 +14,22 @@ XX_Y_Z.bag or XX_Y_Z.csv という名前のファイルはそれぞれ以下の�
    1. A : 入力が[0,400]
    2. B : 入力が[100,300]
 
+_2024-05-16-15-09-44.bagは予備実験のデータ
+### bagファイルのデータについて
+- 入力の参照値
+  pressure/cal_and_ref_value/data.36 - 39
+
+- 入力の計測値
+  pressure/cal_and_ref_value/data.0 - 3
+
+- 圧力センサの計測値(フィルタ前)
+  pressure/value/data.8 - 11
+
+- フィルタした計測値(出力)
+  pressure/cal_and_ref_value/data.8 - 11
+
+フィルタや制御のパラメータなどの詳細はrosのlaunchファイル(~~~_chada.launch)を見てください
+
 ## calculate_MC
 XX_4_Z.csvに対してMC_kのグラフを作成するコード. 詳しくはコードのコメントを読んでください.
 
@@ -24,6 +40,7 @@ XX_4_Z.csvに対してMC_kのグラフを作成するコード. 詳しくはコ�
 ## other
 * plot_inputs.py
   入出力をplotするコード
-* 
+* plot_from_bag.m
+  bagファイルからplotするコード, matlabで実行
 
 
