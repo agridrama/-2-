@@ -39,10 +39,6 @@ except:
   k = 10
   neighbours = []
   for i in range(len(data-100)):
-      # dist = np.sqrt(np.sum((data.iloc[i].values - data.values)**2, axis=1))
-      # use only output data
-      # dist = np.sqrt(np.sum((data[['output_1', 'output_2', 'output_3', 'output_4']].iloc[i].values - data[['output_1', 'output_2', 'output_3', 'output_4']].values)**2, axis=1))
-      # use only input data
       dist = np.sqrt(np.sum((data[['input_val1', 'input_val2', 'input_val3', 'input_val4']].iloc[i].values - data[['input_val1', 'input_val2', 'input_val3', 'input_val4']].values)**2, axis=1))
       # sort the distance and find the kth nearest neighbour
       # keep index of the kth nearest neighbour

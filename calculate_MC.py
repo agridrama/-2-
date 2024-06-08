@@ -14,6 +14,7 @@ for ii in range(3):
   for jj in range(2):
     name = f'{dstrs[ii]}_4_{ranges[jj]}'
     data = pd.read_csv(name + '.csv', header=None)
+    # remove the first 5000 rows of transient states
     data = data.iloc[5000:]
     # set column names, input_data, output_data
     data.columns = ['input_ref1', 'input_ref2', 'input_ref3', 'input_ref4', 'input_val1', 'input_val2', 'input_val3', 'input_val4','output_1', 'output_2', 'output_3', 'output_4']
@@ -34,6 +35,7 @@ for ii in range(3):
         # split the data into train and test
         X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=False, train_size=10000)
         # create ridge regression object
+        # alpha is the regularization strength, the larger the value, the more the regularization
         reg = Ridge(alpha=0.1)
         # fit the model
         reg.fit(X_train, y_train)
@@ -57,7 +59,10 @@ for ii in range(3):
     plt.ylabel('Memory Capacity at k')
     plt.title(f'Memory Capacity of inputs, ranges = {ranges[jj]}, d = {d}')
     plt.legend()
+    # save the figure as a png file
+    # please comment out the following line if you do not want to save the figure
     plt.savefig(f'../figs/MC_{name}.png')
+    plt.show()
     plt.close()
     
     print(f'Memory Capacity of {name}: {MC}')
